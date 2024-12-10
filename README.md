@@ -10,6 +10,13 @@ Caso não configure nenhuma senha diferente para o usuário admin você já cons
 
 Somente o admin tem acesso a alguns endpoints como o de listar usuários, deletar e gerenciar as cores
 
-caso queira rodar o projeto usando o docker roda o comando docker-compose up --build o front ficará disponível na porta http://localhost:3000 e o backend na http://localhost:3001
+Caso queira rodar o projeto usando o docker roda o comando docker-compose up --build o front ficará disponível na porta http://localhost:3000 e o backend na http://localhost:3001
 
-deixei também uma collection do postman ai caso queira brincar com os endpoints
+Deixei também uma collection do postman ai caso queira brincar com os endpoints.
+
+Coisas que gostaria de ter feito a mais:
+
+- O CRUD de cores para o admin
+- Proteger melhor as páginas e menus por baseado na role do usuário
+- Tela de recuperar senha
+- Controlar melhor a sessão do usuário
