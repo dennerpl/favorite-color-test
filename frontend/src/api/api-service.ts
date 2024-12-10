@@ -27,14 +27,14 @@ const paramsSerializer = (queryParams: Record<string, any>): string => {
 
 class Service {
   instance: AxiosInstance = axios.create({
-    baseURL: import.meta.env.BACKEND_URL || "http://localhost:3000",
+    baseURL: "http://localhost:3001",
   });
   instanceTable: AxiosInstance = axios.create({});
 
   constructor() {
     this.instance.interceptors.response.use(
       (response) => response,
-      (error) => unauthorizedErrorHandler(error, this.instance)
+      (error) => unauthorizedErrorHandler(error)
     );
     this.instance.interceptors.request.use(requestAuthenticationMiddleware);
   }

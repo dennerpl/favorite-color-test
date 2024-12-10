@@ -1,8 +1,7 @@
 import * as React from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { AppProvider } from "@toolpad/core/react-router-dom";
-import { Outlet, Router, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import type { Navigation, Session } from "@toolpad/core";
 import { SessionContext } from "./SessionContext";
 import "tailwindcss/tailwind.css";

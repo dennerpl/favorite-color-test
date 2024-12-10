@@ -2,7 +2,6 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import {
   Avatar,
-  Badge,
   Box,
   Card,
   FormControl,
@@ -18,7 +17,6 @@ export default function HomePage() {
   const { session } = useSession();
   const [selectedColor, setSelectedColor] = React.useState("");
   const [colors, setColors] = React.useState<Record<string, any>>();
-  const [user, setUser] = React.useState<Record<string, any>>();
 
   const handleChange = (event: SelectChangeEvent) => {
     setSelectedColor(event.target.value as string);
@@ -56,7 +54,6 @@ export default function HomePage() {
       setColors(response.data);
     });
     ApiService.retrieve(`/users/${session?.user?.id}`).then((response) => {
-      setUser(response.data);
       setSelectedColor(response.data?.favoriteColor?.id);
     });
   }, []);

@@ -1,6 +1,6 @@
-const unauthorizedErrorHandler = async (error: any, instance: any) => {
+const unauthorizedErrorHandler = async (error: any) => {
   if (error.response.status === 401) {
-    //TODO: limpar a sessão
+    localStorage.removeItem("favorite-color-token");
   }
 
   return Promise.reject(error);

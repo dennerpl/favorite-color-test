@@ -9,6 +9,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { AuthService } from 'src/auth/auth.service';
+import { Role } from '@prisma/client';
 
 @Injectable()
 export class UsersService {
@@ -31,6 +32,7 @@ export class UsersService {
       data: {
         ...createUserDto,
         password: bcrypt.hashSync(createUserDto.password, 10),
+        role: Role.USER,
       },
       select: {
         id: true,
