@@ -8,6 +8,7 @@ import {
   Delete,
   OnModuleInit,
   UseGuards,
+  Request,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -18,6 +19,7 @@ import * as bcrypt from 'bcrypt';
 import { RolesGuard } from 'src/auth/roles/roles.guard';
 import { AuthJwtAuthGuardGuard } from 'src/auth-jwt-auth-guard/auth-jwt-auth-guard.guard';
 import { Roles } from 'src/auth/roles/roles.decorator';
+import { User } from 'src/user/user.decorator';
 
 @Controller('users')
 export class UsersController implements OnModuleInit {
@@ -65,6 +67,12 @@ export class UsersController implements OnModuleInit {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
+  }
+
+  @UseGuards(AuthJwtAuthGuardGuard, RolesGuard)
+  @Get('me')
+  getMe(@User() req) {
+    return req.user; // Aqui você acessa o usuário extraído do token
   }
 
   @UseGuards(AuthJwtAuthGuardGuard, RolesGuard)

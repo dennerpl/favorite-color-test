@@ -32,5 +32,5 @@ export class CreateUserDto {
   @IsOptional()
   favoriteColorId: string;
 
-  role: Role = Role.USER;
+  role: Role;
 }
