@@ -21,9 +21,19 @@ export class AuthService {
   }
 
   async login(user: any) {
-    const payload = { email: user.email, sub: user.id, role: user.role };
+    const payload = {
+      email: user.email,
+      name: user.fullName,
+      sub: user.id,
+      role: user.role,
+      id: user.id,
+    };
     return {
-      access_token: this.jwtService.sign(payload),
+      id: user.id,
+      token: this.jwtService.sign(payload),
+      email: user.email,
+      name: user.fullName,
+      image: `https://i.pravatar.cc/300?img=${Math.floor(Math.random() * 70) + 1}`,
     };
   }
 }
