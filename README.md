@@ -8,6 +8,8 @@ O front ficará disponível na porta http://localhost:5173/ e o backend em http:
 
 Caso não configure nenhuma senha diferente para o usuário admin você já conseguira fazer login com email admin@admin.com e senha UmaSenhaMuitoSegura2
 
+Você pode criar conta como usuário comum para cadastrar a cor favorita e ver seu perfil
+
 Somente o admin tem acesso a alguns endpoints como o de listar usuários, deletar e gerenciar as cores
 
 Caso queira rodar o projeto usando o docker roda o comando docker-compose up --build o front ficará disponível na porta http://localhost:3000 e o backend na http://localhost:3001
