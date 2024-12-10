@@ -105,22 +105,6 @@ function CustomButton() {
   );
 }
 
-function SignUpLink() {
-  return (
-    <Link href="/sign-up" variant="body2">
-      Criar conta
-    </Link>
-  );
-}
-
-function ForgotPasswordLink() {
-  return (
-    <Link href="/" variant="body2">
-      Esqueceu a senha?
-    </Link>
-  );
-}
-
 function Title() {
   return <h2 style={{ marginBottom: 8 }}>Login</h2>;
 }
@@ -133,6 +117,14 @@ export default function SignIn() {
   const theme = useTheme();
   const { setSession } = useSession();
   const navigate = useNavigate();
+
+  function SignUpLink() {
+    return (
+      <Link onClick={() => navigate("/sign-up")} variant="body2">
+        Criar conta
+      </Link>
+    );
+  }
   const getSession = async (formData: any): Promise<Session> => {
     return ApiService.update("/auth/login", {
       email: formData.get("email"),
@@ -154,7 +146,7 @@ export default function SignIn() {
   return (
     <AppProvider theme={theme}>
       <SignInPage
-        signIn={async (provider, formData, callbackUrl) => {
+        signIn={async (_provider, formData, callbackUrl) => {
           try {
             const session = await getSession(formData);
             if (session) {

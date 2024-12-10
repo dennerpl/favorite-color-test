@@ -37,10 +37,8 @@ export default function UsersPage() {
       .then((response) => {
         setUsersList(response.data);
       })
-      .catch((error) => {
-        if (error.response.status === 401) {
-          setUnauthorized(true);
-        }
+      .catch((_error) => {
+        setUnauthorized(true);
       })
       .finally(() => {
         setIsLoading(false);
@@ -52,7 +50,11 @@ export default function UsersPage() {
   }
 
   if (unauthorized) {
-    return <Typography>Você não está autorizado a ver estes dados</Typography>;
+    return (
+      <Typography>
+        Somente os administradores podem acessar essa página
+      </Typography>
+    );
   }
 
   return (
